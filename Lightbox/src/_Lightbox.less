@@ -1,0 +1,80 @@
+// autoprefixer: > 5%; last 2 Chrome versions; not ie 6-9,compress: false, sourceMap: false, out: ../css/lightbox.css
+
+#lbx-modal {
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  left : 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+  animation: bgfade 1s normal;
+  &>div {
+    position: relative;
+    animation: show 1s normal;
+    & > button {
+      position: absolute;
+      right: -.3em;
+      top: -.3em;
+      font-size: 2em;
+      border-radius: .2em;
+      animation: xfade .5s normal;
+    }
+  }
+  &.modal-closing {
+    animation: bgfadeout 1s normal;
+    & > div {
+      animation: zoomout 1s normal;
+    }
+  }
+}
+
+@keyframes bgfade {
+  from {
+    background-color: transparent;
+  }
+  to {
+    background-color: rgba(0,0,0,0.7);
+  }
+}
+
+@keyframes bgfadeout {
+  to {
+    background-color: transparent;
+  }
+}
+
+@keyframes xfade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+
+
+@keyframes show {
+  from {
+    opacity: 0;
+    transform: scale(0);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes zoomout {
+  from {
+    opacity: 1;
+    transform: scale(1);
+  }
+  to {
+    opacity: 0;
+    transform: scale(0);
+  }
+}

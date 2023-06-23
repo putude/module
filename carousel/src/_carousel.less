@@ -1,0 +1,42 @@
+// autoprefixer: > 5%; last 2 Chrome versions; not ie 6-9,compress: true, sourceMap: false, out: ../css/carousel.css
+.carousel-container {
+  width: 100%;
+  margin: auto;
+  overflow-x: hidden;
+  position: relative;
+  .shift {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 3;
+    display: block;
+    padding: 10px;
+    background-color: rgba(white, 0.5);
+    cursor: pointer;
+
+    &.right {
+      right: 0;
+    }
+
+    &.left {
+      left: 0;
+    }
+  }
+
+  .carousel-slide {
+    display: grid;
+    grid-template-columns: repeat(5, 100%);
+  }
+
+  .carousel-content {
+    width: 100%;
+    img {
+      width: 100%;
+    }
+
+    .carousel-text {
+      padding: 1em;
+    }
+  }
+
+}

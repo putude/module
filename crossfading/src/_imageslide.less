@@ -1,0 +1,89 @@
+//autoprefixer: > 5%; last 2 Chrome versions; not ie 6-9, out: ../css/imageslider.css, compress:true, sourceMap: false
+
+html,body {
+  margin: 0;
+  padding: 0;
+}
+h1 {
+  text-align: center;
+}
+
+slider-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  padding: 0;
+  margin: 0;
+  .shift {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 3;
+    display: block;
+    padding: 10px;
+    background-color: rgba(white,0.5);
+    cursor: pointer;
+    &.right {
+      right: 0;
+    }
+    &.left {
+      left: 0;
+    }
+  }
+
+  item {
+    opacity: 0;
+    z-index: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    animation: fadeOut 2s;
+    overflow: hidden;
+    text-pos {
+      display: flex;
+      position: absolute;
+      left: 0;
+      right: 0;
+      width: 100%;
+      height: 100%;
+      align-items: center;
+      justify-content: center;
+      text-wrap {
+        display: block;
+        background-color: rgba(white, 0.5);
+        text-align: center;
+        padding: 1em;
+      }
+    }
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    &.show {
+      display: block;
+      z-index: 1;
+      opacity: 1;
+      animation: fadeIn 2s;
+    }
+  }
+}
+
+
+@keyframes fadeIn {
+  0% { opacity: 0; }
+  70% { opacity: 1; }
+}
+
+@keyframes fadeOut {
+  0% { opacity: 1; }
+  70% { opacity: 0; }
+}
