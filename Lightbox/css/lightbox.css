@@ -23,10 +23,10 @@
   animation: xfade 0.5s normal;
 }
 #lbx-modal.modal-closing {
-  animation: bgfadeout 0.5s normal;
+  animation: bgfadeout 0.8s normal;
 }
 #lbx-modal.modal-closing > div {
-  animation: zoomout 0.5s normal;
+  animation: zoomout 0.8s normal;
 }
 @keyframes bgfade {
   from {
