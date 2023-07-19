@@ -1,0 +1,181 @@
+//main: _navbar.less
+.navbar {
+  &>ul {
+    display: block;
+    opacity: 0;
+    height: 0;
+
+    li {
+      list-style: none;
+
+      a {
+        color: white;
+        text-decoration: none;
+        font-size: 1.3em;
+        font-weight: 200;
+      }
+    }
+  }
+
+  .burger-icon {
+    position: fixed;
+    top: 1em;
+    right: 1em;
+    z-index: 2;
+    height: 3em;
+    width: 3em;
+    background-color: white;
+    border-radius: 5em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 1px 1px 10px 10px rgba(0, 0, 0, 0.08);
+
+    &>div {
+      &>span {
+        display: block;
+        width: 1.5em;
+        height: 2px;
+        background-color: #333;
+        margin: 0.3em auto;
+      }
+    }
+  }
+
+
+  &.show {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    background-color: rgba(0, 0, 0, 0.8);
+    animation: bgfadein .3s;
+    z-index: 999;
+
+    ul {
+      margin-top: 6.5em;
+      opacity: 1;
+      height: unset;
+      animation: 1s txtslidein;
+
+      li {
+        margin: .5em;
+      }
+    }
+  }
+
+}
+
+//Dropdown
+.navbar {
+  ul {
+    li.nav-dropdown {
+      margin-left: -.8em;
+      position: relative;
+
+      &>a {
+        &::before {
+          content: "\2023";
+          display: inline-block;
+          transform: scale(2) rotate(0);
+          margin: auto .4em auto .2em;
+        }
+      }
+
+      ul {
+        transition: all .3s ease;
+        position: absolute;
+        opacity: 0;
+        display: block;
+        height: 0;
+        margin: 0;
+        z-index: -1;
+      }
+
+      &.expand {
+        &>a {
+          &::before {
+            transform: scale(2) rotate(90deg);
+          }
+        }
+
+        ul {
+          transition: all .3s ease;
+          position: relative;
+          opacity: 1;
+          z-index: 1;
+          height: unset;
+          margin: unset;
+        }
+      }
+    }
+  }
+}
+
+
+//Animation
+@keyframes bgfadein {
+  from {
+    background-color: transparent;
+  }
+
+  to {
+    background-color: rgba(0, 0, 0, 0.8);
+  }
+}
+
+@keyframes bgfadeout {
+  0% {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    background-color: rgba(0, 0, 0, 0.8);
+  }
+
+  70% {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    background-color: rgba(0, 0, 0, 0.8);
+  }
+
+  99% {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    background-color: transparent;
+  }
+}
+
+@keyframes txtslidein {
+  0% {
+    transform: translateY(-200%);
+  }
+
+  100% {
+    transform: translateY(0);
+  }
+}
+
+@keyframes txtslideout {
+  0% {
+    margin-top: 1.5em;
+    opacity: 1;
+    height: unset;
+    transform: translateY(-0%);
+  }
+
+  100% {
+    transform: translateY(-200%);
+    margin-top: 1.5em;
+    opacity: 1;
+    height: unset;
+  }
+}
